@@ -1,6 +1,6 @@
 import { Button } from "../components/ui/button";
 import Butterfly from "./Butterfly";
-import { heroBg } from '../../public/';
+import heroBg from '../../public/heroBg.png';
 
 const HeroSection = () => {
   return (
