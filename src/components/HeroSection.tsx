@@ -36,9 +36,6 @@ export default function HeroSection() {
           transition={{ duration: 1.4, ease: "easeOut" }}
           className="relative z-20"
         >
-          <p className="mb-8 font-body text-xs uppercase tracking-[0.45em] text-foreground/50">
-            Where darkness meets melody
-          </p>
 
           <h1
             className="
@@ -52,13 +49,13 @@ export default function HeroSection() {
               lg:text-[10rem]
               xl:text-[11rem]
               text-gradient-gold
-              glow-text
+              glow-text mt-5
             "
           >
             XARDONYX
           </h1>
 
-          <div className="mx-auto mt-10 h-px w-48 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+          <div className="mx-auto mt-4 h-px w-48 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
         </motion.div>
 
         {/* RITUAL CARD */}
