@@ -1,5 +1,6 @@
-import { Button } from "../components/ui/button";
+import { motion } from "framer-motion";
 import { Instagram, Youtube, Twitter, Mail } from "lucide-react";
+import { Button } from "../components/ui/button";
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -8,42 +9,70 @@ const socialLinks = [
   { icon: Mail, href: "mailto:contact@xardonyx.com", label: "Email" },
 ];
 
-const ContactSection = () => {
+export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent" />
-      
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl tracking-[0.15em] text-gradient-gold mb-4">
-            CONNECT
+    <section
+      id="contact"
+      className="relative isolate overflow-hidden py-40"
+    >
+      {/* solid gold statement background */}
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(42_85%_55%),hsl(42_75%_45%))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_40%)] mix-blend-overlay" />
+    
+      <div className="absolute inset-0 bg-[#c9a24d]" />
+     
+      <div className="absolute inset-0 bg-black/50"/>
+      <div className="absolute inset-0 bg-noise opacity-35" />
+
+      <div className="relative container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          {/* title */}
+          <h2 className="font-display text-5xl md:text-6xl tracking-[0.35em] text-foreground">
+            CONTACT
           </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8" />
-          
-          <p className="font-body text-lg text-foreground/70 mb-12">
-            Follow the metamorphosis. Join the journey into the shadows.
+
+          <p className="mt-10 font-body text-lg text-foreground/70">
+            Direct lines only. No announcements. No noise.
           </p>
 
-          <div className="flex justify-center gap-6 mb-12">
+          {/* socials */}
+          <div className="mt-16 flex justify-center gap-8">
             {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
                 aria-label={label}
-                className="w-14 h-14 rounded-full border border-border/50 flex items-center justify-center text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-[0_0_20px_hsl(42_75%_55%/0.3)] hover:scale-110"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-border/40 text-foreground/60 transition-colors hover:border-primary"
               >
-                <Icon className="h-5 w-5" />
-              </a>
+                <Icon className="h-6 w-6 transition-colors group-hover:text-primary" />
+                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_40px_hsl(var(--primary)/0.45)] transition" />
+              </motion.a>
             ))}
           </div>
 
-          <Button variant="hero" size="lg">
-            Subscribe for Updates
-          </Button>
-        </div>
+          {/* divider */}
+          <div className="mx-auto mt-20 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent" />
+
+          {/* call to action */}
+          <div className="mt-16">
+            <Button
+              variant="hero"
+              size="lg"
+              className="tracking-widest"
+            >
+              SUBSCRIBE
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default ContactSection;
+}
