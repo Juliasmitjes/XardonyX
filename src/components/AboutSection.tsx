@@ -1,58 +1,80 @@
+import { motion } from "framer-motion";
 import Butterfly from "./Butterfly";
 
-const AboutSection = () => {
+export default function AboutSection() {
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-noise pointer-events-none" />
-      
-      {/* Decorative butterflies */}
-      <Butterfly className="top-[10%] right-[5%]" size={40} delay={1} />
-      <Butterfly className="bottom-[15%] left-[8%]" size={35} delay={3} />
+    <section
+      id="about"
+      className="relative overflow-hidden py-32 md:py-40"
+    >
+      {/* atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_55%)]" />
 
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          {/* Image placeholder with stone-like styling */}
-          <div className="relative">
-            <div className="aspect-[3/4] bg-gradient-to-br from-stone/30 to-secondary/30 rounded-sm overflow-hidden border border-border/30">
+      {/* subtle motion elements */}
+      <Butterfly className="top-[12%] right-[6%] opacity-40" size={32} delay={1.5} />
+      <Butterfly className="bottom-[18%] left-[8%] opacity-30" size={28} delay={3.5} />
+
+      <div className="relative container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+
+          {/* visual block */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-border/30">
+              {/* image placeholder */}
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-background" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full border border-primary/30 flex items-center justify-center mx-auto mb-4">
-                    <span className="font-display text-4xl text-gradient-gold">X</span>
-                  </div>
-                  <p className="font-body italic text-muted-foreground text-sm">Artist Photo</p>
-                </div>
+                <span className="font-display text-7xl tracking-widest text-foreground/30">X</span>
               </div>
-            </div>
-            {/* Decorative corner accents */}
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-primary/50" />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-primary/50" />
-          </div>
 
-          {/* Content */}
-          <div>
-            <h2 className="font-display text-4xl md:text-5xl tracking-[0.15em] text-gradient-gold mb-8">
+              {/* grain overlay */}
+              <div className="absolute inset-0 bg-noise opacity-30" />
+            </div>
+
+            {/* minimal caption */}
+            <div className="mt-4 text-xs tracking-widest text-muted-foreground">
+              PORTRAIT — UNPUBLISHED
+            </div>
+          </motion.div>
+
+          {/* text content */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <h2 className="font-display text-5xl md:text-6xl tracking-[0.25em] text-foreground">
               ABOUT
             </h2>
-            <div className="space-y-6 font-body text-lg leading-relaxed text-foreground/80">
+
+            <div className="mt-10 max-w-xl space-y-8 font-body text-lg leading-relaxed text-foreground/80">
               <p>
-                Emerging from the shadows, Xardonyx crafts ethereal soundscapes 
-                that blend the delicate beauty of butterflies with the raw power 
-                of obsidian stone.
+                Xardonyx works with restraint. Sound is reduced, shaped, and
+                repeated until it begins to carry weight.
               </p>
               <p>
-                Her music is a metamorphosis—transforming darkness into 
-                something hauntingly beautiful. Each note carries the weight of 
-                ancient mysteries while floating with gossamer lightness.
+                The music avoids release. Tension is allowed to exist without
+                resolution, creating space for interpretation rather than
+                explanation.
               </p>
-              <p className="italic text-primary/80">
-                "I create music for those who find beauty in the shadows."
+              <p className="text-muted-foreground">
+                The result is music that feels deliberate, physical, and
+                quietly immersive.
               </p>
             </div>
-          </div>
+
+            {/* divider */}
+            <div className="mt-12 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
+          </motion.div>
         </div>
       </div>
     </section>
   );
-};
-
-export default AboutSection;
+}

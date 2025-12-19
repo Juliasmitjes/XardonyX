@@ -73,8 +73,8 @@ export default function HeroSection() {
             </p>
 
             <p className="mt-6 font-display text-4xl leading-tight text-foreground">
-              Deep sound.<br />
-              More feeling.
+              Hier komt <br />
+              een slogan
             </p>
 
             <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />

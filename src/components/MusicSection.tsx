@@ -2,10 +2,10 @@ import { Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 const tracks = [
-  { id: 1, title: "Obsidian Dreams", duration: "3:42" },
-  { id: 2, title: "Wings of Midnight", duration: "4:15" },
-  { id: 3, title: "Stone Heart", duration: "3:58" },
-  { id: 4, title: "Metamorphosis", duration: "5:01" },
+  { id: 1, title: "She lives in you", duration: "4:52" },
+  { id: 2, title: "Take my wings", duration: "5:43" },
+  { id: 3, title: "Handle it", duration: "2:58" },
+  { id: 4, title: "Until falling", duration: "3:14" },
 ];
 
 export default function MusicSection() {
@@ -31,7 +31,7 @@ export default function MusicSection() {
             MUSIC
           </motion.h2>
           <p className="mt-6 font-body text-sm tracking-widest text-muted-foreground">
-            Focused sound. Open meaning.
+            Focused sound.
           </p>
         </div>
 
