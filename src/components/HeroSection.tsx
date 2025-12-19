@@ -49,7 +49,7 @@ export default function HeroSection() {
               lg:text-[10rem]
               xl:text-[11rem]
               text-gradient-gold
-              glow-text mt-5
+              glow-text mt-30
             "
           >
             XARDONYX
@@ -73,8 +73,8 @@ export default function HeroSection() {
             </p>
 
             <p className="mt-6 font-display text-4xl leading-tight text-foreground">
-              Sound as ritual.<br />
-              Identity as myth.
+              Deep sound.<br />
+              More feeling.
             </p>
 
             <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -90,7 +90,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-20"
+          className="mt-20 pb-20"
         >
           <Button variant="hero" size="lg" asChild>
             <a
