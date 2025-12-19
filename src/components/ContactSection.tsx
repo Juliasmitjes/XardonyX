@@ -38,7 +38,7 @@ export default function ContactSection() {
           </h2>
 
           <p className="mt-10 font-body text-lg text-foreground/70">
-            Direct lines only. No announcements. No noise.
+            Let's connect.
           </p>
 
           {/* socials */}
@@ -66,7 +66,7 @@ export default function ContactSection() {
             <Button
               variant="hero"
               size="lg"
-              className="tracking-widest"
+              className="tracking-widest cursor-pointer"
             >
               SUBSCRIBE
             </Button>
