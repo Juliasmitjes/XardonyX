@@ -21,7 +21,7 @@ export default function ContactSection() {
     
       <div className="absolute inset-0 bg-[#c9a24d]" />
      
-      <div className="absolute inset-0 bg-black/50"/>
+      <div className="absolute inset-0 bg-black/60"/>
       <div className="absolute inset-0 bg-noise opacity-35" />
 
       <div className="relative container mx-auto px-6">
