@@ -1,67 +1,85 @@
 import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 const tracks = [
-  {
-    id: 1,
-    title: "Obsidian Dreams",
-    duration: "3:42",
-  },
-  {
-    id: 2,
-    title: "Wings of Midnight",
-    duration: "4:15",
-  },
-  {
-    id: 3,
-    title: "Stone Heart",
-    duration: "3:58",
-  },
-  {
-    id: 4,
-    title: "Metamorphosis",
-    duration: "5:01",
-  },
+  { id: 1, title: "Obsidian Dreams", duration: "3:42" },
+  { id: 2, title: "Wings of Midnight", duration: "4:15" },
+  { id: 3, title: "Stone Heart", duration: "3:58" },
+  { id: 4, title: "Metamorphosis", duration: "5:01" },
 ];
 
-const MusicSection = () => {
+export default function MusicSection() {
   return (
-    <section id="music" className="relative py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-      
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl tracking-[0.15em] text-gradient-gold mb-4">
+    <section
+      id="music"
+      className="relative overflow-hidden py-32 md:py-40"
+    >
+      {/* background atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/30" />
+      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_30%,hsl(var(--primary)/0.25),transparent_60%)]" />
+
+      <div className="relative container mx-auto px-6">
+        {/* header */}
+        <div className="mb-20 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-display text-5xl md:text-6xl tracking-[0.25em] text-foreground"
+          >
             MUSIC
-          </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
+          </motion.h2>
+          <p className="mt-6 font-body text-sm tracking-widest text-muted-foreground">
+            Focused sound. Open meaning.
+          </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          {tracks.map((track, index) => (
-            <div
-              key={track.id}
-              className="group flex items-center justify-between py-6 border-b border-border/30 transition-all duration-300 hover:border-primary/50 cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10 group-hover:shadow-[0_0_20px_hsl(42_75%_55%/0.3)]">
-                  <Play className="h-4 w-4 text-primary ml-0.5" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg tracking-wider text-foreground group-hover:text-primary transition-colors">
+        {/* list */}
+        <div className="mx-auto max-w-4xl">
+          <ul className="divide-y divide-border/20">
+            {tracks.map((track, index) => (
+              <motion.li
+                key={track.id}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="group relative grid grid-cols-[auto_1fr_auto] items-center gap-6 py-8 px-4 md:px-8"
+              >
+                {/* index */}
+                <span className="font-mono text-xs text-muted-foreground/60">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                {/* title */}
+                <div className="flex flex-col">
+                  <h3 className="font-display text-xl tracking-wide text-foreground transition-colors group-hover:text-primary">
                     {track.title}
                   </h3>
+                  <span className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                    single
+                  </span>
                 </div>
-              </div>
-              <span className="font-body text-muted-foreground">
-                {track.duration}
-              </span>
-            </div>
-          ))}
+
+                {/* controls */}
+                <div className="flex items-center gap-6">
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {track.duration}
+                  </span>
+                  <button className="relative flex h-12 w-12 items-center justify-center rounded-full border border-border/40 transition-all duration-300 group-hover:border-primary/60 group-hover:bg-primary/10">
+                    <Play className="h-4 w-4 translate-x-[1px] text-foreground group-hover:text-primary" />
+                    <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] transition" />
+                  </button>
+                </div>
+
+                {/* hover line */}
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
-};
-
-export default MusicSection;
+}
