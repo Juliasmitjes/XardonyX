@@ -14,7 +14,7 @@ export default function AboutSection() {
       <Butterfly className="bottom-[18%] left-[8%] opacity-30" size={28} delay={3.5} />
 
       <div className="relative container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center">
 
           {/* visual block */}
           <motion.div
@@ -81,6 +81,17 @@ export default function AboutSection() {
 
             {/* divider */}
             <div className="mt-12 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
+
+            <div className="mt-10 grid grid-cols-2 gap-8 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              <div>
+                <span className="block font-display text-2xl tracking-[0.2em] text-foreground">08</span>
+                Releases
+              </div>
+              <div>
+                <span className="block font-display text-2xl tracking-[0.2em] text-foreground">2019</span>
+                Since
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

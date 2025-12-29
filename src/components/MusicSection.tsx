@@ -17,31 +17,37 @@ export default function MusicSection() {
       {/* background handled by parent wrapper */}
 
       <div className="relative container mx-auto px-6">
-        {/* header */}
-        <div className="mb-20 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-5xl md:text-6xl tracking-[0.25em] text-foreground"
-          >
-            MUSIC
-          </motion.h2>
-          <p className="mt-6 font-body text-sm tracking-widest text-muted-foreground">
-            Focused sound.
-          </p>
-        </div>
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] items-start">
+          {/* header */}
+          <div className="space-y-10 text-center lg:text-left">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-display text-5xl md:text-6xl tracking-[0.25em] text-foreground"
+            >
+              MUSIC
+            </motion.h2>
+            <p className="font-body text-sm tracking-widest text-muted-foreground">
+              Focused sound.
+            </p>
+            <div className="flex items-center justify-center gap-4 text-xs uppercase tracking-[0.3em] text-muted-foreground lg:justify-start">
+              <span>Latest releases</span>
+              <span className="h-px w-12 bg-gradient-to-r from-primary/60 to-transparent" />
+              <span className="font-mono tracking-[0.2em]">04</span>
+            </div>
+          </div>
 
-        {/* list */}
-        <div className="mx-auto max-w-4xl">
-          <ul className="divide-y divide-border/20">
+          {/* list */}
+          <div className="rounded-2xl border border-border/30 bg-white/5 backdrop-blur-sm">
+            <ul className="divide-y divide-border/30">
             {tracks.map((track, index) => {
               const shouldAnimate = index % 2 === 0;
               const sharedProps = {
                 key: track.id,
                 className:
-                  "group relative grid grid-cols-[auto_1fr_auto] items-center gap-6 py-8 px-4 md:px-8",
+                  "group relative grid grid-cols-[auto_1fr_auto] items-center gap-6 py-7 px-4 md:px-8",
               };
 
               const content = (
@@ -93,7 +99,8 @@ export default function MusicSection() {
                 </motion.li>
               );
             })}
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
