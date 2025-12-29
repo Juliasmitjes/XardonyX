@@ -7,9 +7,7 @@ export default function AboutSection() {
       id="about"
       className="relative overflow-hidden py-32 md:py-40"
     >
-      {/* atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_55%)]" />
+      {/* background handled by parent wrapper */}
 
       {/* subtle motion elements */}
       <Butterfly className="top-[12%] right-[6%] opacity-40" size={32} delay={1.5} />
@@ -55,19 +53,30 @@ export default function AboutSection() {
             </h2>
 
             <div className="mt-10 max-w-xl space-y-8 font-body text-lg leading-relaxed text-foreground/80">
-              <p>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+              >
                 Xardonyx works with restraint. Sound is reduced, shaped, and
                 repeated until it begins to carry weight.
-              </p>
+              </motion.p>
               <p>
                 The music avoids release. Tension is allowed to exist without
                 resolution, creating space for interpretation rather than
                 explanation.
               </p>
-              <p className="text-muted-foreground">
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+                className="text-muted-foreground"
+              >
                 The result is music that feels deliberate, physical, and
                 quietly immersive.
-              </p>
+              </motion.p>
             </div>
 
             {/* divider */}

@@ -15,14 +15,7 @@ export default function ContactSection() {
       id="contact"
       className="relative isolate overflow-hidden py-40"
     >
-      {/* solid gold statement background */}
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(42_85%_55%),hsl(42_75%_45%))]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_40%)] mix-blend-overlay" />
-    
-      <div className="absolute inset-0 bg-[#c9a24d]" />
-     
-      <div className="absolute inset-0 bg-black/60"/>
-      <div className="absolute inset-0 bg-noise opacity-35" />
+      {/* background handled by parent wrapper */}
 
       <div className="relative container mx-auto px-6">
         <motion.div
@@ -43,19 +36,40 @@ export default function ContactSection() {
 
           {/* socials */}
           <div className="mt-16 flex justify-center gap-8">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                aria-label={label}
-                whileHover={{ scale: 1.15 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-border/40 text-foreground/60 transition-colors hover:border-primary"
-              >
-                <Icon className="h-6 w-6 transition-colors group-hover:text-primary" />
-                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_40px_hsl(var(--primary)/0.45)] transition" />
-              </motion.a>
-            ))}
+            {socialLinks.map(({ icon: Icon, href, label }, index) => {
+              const shouldAnimate = index % 2 === 0;
+              const sharedProps = {
+                key: label,
+                href,
+                "aria-label": label,
+                className:
+                  "group relative flex h-16 w-16 items-center justify-center rounded-full border border-border/40 text-foreground/60 transition-colors hover:border-primary",
+              };
+
+              if (!shouldAnimate) {
+                return (
+                  <a {...sharedProps}>
+                    <Icon className="h-6 w-6 transition-colors group-hover:text-primary" />
+                    <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_40px_hsl(var(--primary)/0.45)] transition" />
+                  </a>
+                );
+              }
+
+              return (
+                <motion.a
+                  {...sharedProps}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Icon className="h-6 w-6 transition-colors group-hover:text-primary" />
+                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_40px_hsl(var(--primary)/0.45)] transition" />
+                </motion.a>
+              );
+            })}
           </div>
 
           {/* divider */}
