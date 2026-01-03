@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Twitter, Mail } from "lucide-react";
+import { Instagram, Youtube, Mail, CirclePlay  } from "lucide-react";
 import { Button } from "../components/ui/button";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: CirclePlay, href: "#", label: "Spotify" },
   { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Mail, href: "mailto:contact@xardonyx.com", label: "Email" },
+
 ];
 
 export default function ContactSection() {
@@ -97,9 +98,9 @@ export default function ContactSection() {
               <Button
                 variant="hero"
                 size="lg"
-                className="w-full tracking-widest"
+                className="w-full tracking-widest cursor-pointer"
               >
-                SUBSCRIBE
+                LISTEN
               </Button>
             </div>
           </div>

@@ -1,9 +1,10 @@
-import { Instagram, Youtube, Twitter } from "lucide-react";
+import { Instagram, Youtube, CirclePlay } from "lucide-react";
 
 const socialLinks = [
+  { icon: CirclePlay, href: "#", label: "Spotify" },
   { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+
 ];
 
 const Footer = () => {

@@ -67,16 +67,8 @@ export default function AboutSection() {
                 resolution, creating space for interpretation rather than
                 explanation.
               </p>
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="text-muted-foreground"
-              >
                 The result is music that feels deliberate, physical, and
                 quietly immersive.
-              </motion.p>
             </div>
 
             {/* divider */}
