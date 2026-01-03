@@ -59,7 +59,7 @@ export default function MusicSection() {
 
                   {/* title */}
                   <div className="flex flex-col">
-                    <h3 className="font-display text-xl tracking-wide text-foreground transition-colors group-hover:text-primary">
+                    <h3 className="font-display text-xl tracking-wide text-foreground transition-colors group-hover:text-primary cursor-pointer">
                       {track.title}
                     </h3>
                     <span className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
@@ -74,7 +74,7 @@ export default function MusicSection() {
                     </span>
                     <button className="relative flex h-12 w-12 items-center justify-center rounded-full border border-border/40 transition-all duration-300 group-hover:border-primary/60 group-hover:bg-primary/10">
                       <Play className="h-4 w-4 translate-x-[1px] text-foreground group-hover:text-primary" />
-                      <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] transition" />
+                      <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] transition  cursor-pointer" />
                     </button>
                   </div>
 
