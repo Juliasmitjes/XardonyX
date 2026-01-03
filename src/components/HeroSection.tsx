@@ -1,108 +1,113 @@
-import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
-import Butterfly from "./Butterfly";
+import { Link } from "react-router-dom";
 import heroBg from "../../public/heroBg.png";
+import optie2 from "../../public/optie2.png";
+
+const featuredLinks = [
+  {
+    id: "01",
+    title: "Singles",
+    href: "/singles",
+    image: optie2,
+    imageClassName: "object-[center_35%]",
+  },
+  {
+    id: "02",
+    title: "Interviews",
+    href: "/interviews",
+    image: heroBg,
+    imageClassName: "object-[center_25%]",
+  },
+  {
+    id: "03",
+    title: "Albums",
+    href: "/albums",
+    image: heroBg,
+    imageClassName: "object-[center_70%]",
+  },
+];
+
+const highlights = [
+  {
+    title: "Grammy - Space of Commotion",
+    meta: "Mar 20, 2023 · 2 min read",
+    excerpt:
+      "Short, punchy sentences that summarize the story and invite the reader to continue.",
+    image: heroBg,
+    imageClassName: "object-[center_45%]",
+  },
+  {
+    title: "Emil Bjarni - The Aesi",
+    meta: "Mar 16, 2023 · 3 min read",
+    excerpt:
+      "A focused teaser for the article, keeping the rhythm minimal and sharp.",
+    image: optie2,
+    imageClassName: "object-[center_30%]",
+  },
+];
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-
-      {/* BACKGROUND */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Xardonyx background"
-          className="h-full w-full object-cover scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,175,55,0.25),transparent_55%)]" />
-      </div>
-
-      {/* NOISE */}
-      <div className="pointer-events-none absolute inset-0 bg-noise opacity-40" />
-
-      {/* BUTTERFLIES (meer betekenisvol geplaatst) */}
-      <Butterfly className="top-[18%] left-[12%]" size={70} delay={0} />
-      <Butterfly className="top-[32%] right-[14%]" size={50} delay={1.5} />
-      <Butterfly className="bottom-[20%] left-[20%]" size={60} delay={3} />
-
-      {/* CONTENT */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
-
-        {/* TITLE BLOCK */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-          className="relative z-20"
-        >
-
-          <h1
-            className="
-              font-display
-              whitespace-nowrap
-              text-[4.5rem]
-              leading-none
-              tracking-[0.22em]
-              sm:text-[6rem]
-              md:text-[8rem]
-              lg:text-[10rem]
-              xl:text-[11rem]
-              text-gradient-gold
-              glow-text mt-30
-            "
-          >
-            XARDONYX
-          </h1>
-
-          <div className="mx-auto mt-4 h-px w-48 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-        </motion.div>
-
-        {/* RITUAL CARD */}
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.6, ease: "easeOut", delay: 0.4 }}
-          className="relative mt-24 w-full max-w-xl"
-        >
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-black/80 via-black/60 to-black/40 backdrop-blur-2xl border border-primary/20 shadow-[0_0_120px_rgba(212,175,55,0.18)]" />
-
-          <div className="relative p-14">
-            <p className="font-display text-xs uppercase tracking-[0.5em] text-primary/70">
-              New Era
-            </p>
-
-            <p className="mt-6 font-display text-4xl leading-tight text-foreground">
-              Hier komt <br />
-              een slogan
-            </p>
-
-            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-            <p className="mt-8 font-body text-sm tracking-wide text-foreground/55">
-              Descend. Listen. Transform.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="mt-20 pb-20"
-        >
-          <Button variant="hero" size="lg" asChild>
-            <a
-              href="https://open.spotify.com"
-              target="_blank"
-              rel="noopener noreferrer"
+    <section className="bg-[#050505] text-foreground">
+      <div className="container mx-auto px-6 pt-28 pb-16">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr_1fr]">
+          {featuredLinks.map((item) => (
+            <Link
+              key={item.id}
+              to={item.href}
+              className="group relative overflow-hidden"
             >
-              Listen Now
-            </a>
-          </Button>
-        </motion.div>
+              <img
+                src={item.image}
+                alt={`${item.title} cover`}
+                className={`h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[360px] lg:h-[420px] ${item.imageClassName}`}
+              />
+              <div className="absolute inset-0 bg-black/35" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <span className="text-xs uppercase tracking-[0.4em] text-foreground/70">
+                  {item.id}
+                </span>
+                <span className="mt-2 h-px w-12 bg-foreground/70" />
+                <h3 className="mt-4 font-display text-3xl tracking-wide text-foreground">
+                  {item.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </div>
 
+        <div className="mt-16 space-y-12">
+          {highlights.map((item) => (
+            <article
+              key={item.title}
+              className="grid items-start gap-6 border-b border-foreground/10 pb-12 md:grid-cols-[260px_1fr]"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={`h-48 w-full object-cover md:h-56 ${item.imageClassName}`}
+                />
+              </div>
+              <div className="space-y-3">
+                <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+                  {item.meta}
+                </p>
+                <h4 className="font-display text-2xl tracking-wide text-foreground">
+                  {item.title}
+                </h4>
+                <p className="max-w-2xl text-sm leading-relaxed text-foreground/70">
+                  {item.excerpt}
+                </p>
+                <div className="pt-3">
+                  <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/60">
+                    <span className="h-px w-10 bg-foreground/40" />
+                    Continue reading
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

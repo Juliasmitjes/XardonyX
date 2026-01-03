@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Music", href: "#music" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Singles", href: "/singles" },
+  { label: "Interviews", href: "/interviews" },
+  { label: "Albums", href: "/albums" },
+  { label: "Contact & Details", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -29,29 +32,15 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex h-20 items-center justify-between">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="font-display text-xl tracking-[0.3em] text-foreground transition-colors hover:text-primary"
           >
             XARDONYX
-          </a>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="font-display text-sm tracking-widest text-foreground/80 transition-all duration-300 hover:text-primary uppercase relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -60,23 +49,35 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Fullscreen Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border/30 transition-all duration-300 ${
+        className={`fixed inset-0 z-50 bg-black/95 transition-all duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col gap-4">
+        <button
+          className="absolute top-8 left-1/2 -translate-x-1/2 text-foreground p-2"
+          onClick={() => setIsOpen(false)}
+          aria-label="Close menu"
+        >
+          <X className="h-7 w-7" />
+        </button>
+
+        <div className="flex h-full items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
             {navLinks.map(({ label, href }) => (
-              <a
+              <Link
                 key={label}
-                href={href}
+                to={href}
                 onClick={() => setIsOpen(false)}
-                className="font-display text-lg tracking-widest text-foreground/80 transition-colors hover:text-primary uppercase py-2"
+                className={`font-display text-2xl tracking-wider transition-colors ${
+                  label === "Home"
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
