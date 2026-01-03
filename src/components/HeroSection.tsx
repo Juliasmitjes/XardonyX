@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import heroBg from "../../public/heroBg.png";
 import optie2 from "../../public/optie2.png";
+import voorbeeldArtiest from "../../public/voorbeeldArtiest.png";
 
 const featuredLinks = [
   {
@@ -26,22 +27,21 @@ const featuredLinks = [
   },
 ];
 
-const highlights = [
+const artistHighlights = [
   {
-    title: "Grammy - Space of Commotion",
-    meta: "Mar 20, 2023 · 2 min read",
-    excerpt:
-      "Short, punchy sentences that summarize the story and invite the reader to continue.",
-    image: heroBg,
-    imageClassName: "object-[center_45%]",
+    title: "Midnight Ceremony",
+    type: "Single",
+    year: "2024",
   },
   {
-    title: "Emil Bjarni - The Aesi",
-    meta: "Mar 16, 2023 · 3 min read",
-    excerpt:
-      "A focused teaser for the article, keeping the rhythm minimal and sharp.",
-    image: optie2,
-    imageClassName: "object-[center_30%]",
+    title: "Ashes in Orbit",
+    type: "EP",
+    year: "2023",
+  },
+  {
+    title: "Glass Cathedral",
+    type: "Album",
+    year: "2022",
   },
 ];
 
@@ -75,38 +75,86 @@ export default function HeroSection() {
           ))}
         </div>
 
-        <div className="mt-16 space-y-12">
-          {highlights.map((item) => (
-            <article
-              key={item.title}
-              className="grid items-start gap-6 border-b border-foreground/10 pb-12 md:grid-cols-[260px_1fr]"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`h-48 w-full object-cover md:h-56 ${item.imageClassName}`}
-                />
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+          <div className="relative overflow-hidden border border-foreground/15">
+            <img
+              src={voorbeeldArtiest}
+              alt="Artist portrait"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
+                Artist profile
+              </p>
+              <h4 className="font-display text-3xl tracking-[0.15em] text-foreground">
+                Xardonyx
+              </h4>
+              <p className="text-sm leading-relaxed text-foreground/70">
+                A cinematic techno project shaped by ritual, light, and long-form
+                builds. The sound moves between industrial tension and luminous
+                breaks, grounded by a minimalist live setup.
+              </p>
+            </div>
+
+            <div className="grid gap-6 border-y border-foreground/10 py-6 text-sm text-foreground/70 md:grid-cols-3">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
+                  Origin
+                </p>
+                <p className="mt-2 text-foreground">Amsterdam</p>
               </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
+                  Genre
+                </p>
+                <p className="mt-2 text-foreground">Techno / Ritual</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
+                  Active
+                </p>
+                <p className="mt-2 text-foreground">2019 - Now</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+                Selected releases
+              </p>
               <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-                  {item.meta}
-                </p>
-                <h4 className="font-display text-2xl tracking-wide text-foreground">
-                  {item.title}
-                </h4>
-                <p className="max-w-2xl text-sm leading-relaxed text-foreground/70">
-                  {item.excerpt}
-                </p>
-                <div className="pt-3">
-                  <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/60">
-                    <span className="h-px w-10 bg-foreground/40" />
-                    Continue reading
-                  </span>
-                </div>
+                {artistHighlights.map((item) => (
+                  <div
+                    key={item.title}
+                    className="flex items-center justify-between border-b border-foreground/10 pb-3 text-sm"
+                  >
+                    <div>
+                      <p className="text-foreground">{item.title}</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-foreground/50">
+                        {item.type}
+                      </p>
+                    </div>
+                    <span className="text-xs uppercase tracking-[0.3em] text-foreground/50">
+                      {item.year}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </article>
-          ))}
+              <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-foreground/60">
+                <Link to="/albums" className="hover:text-primary">
+                  View albums
+                </Link>
+                <Link to="/singles" className="hover:text-primary">
+                  View singles
+                </Link>
+                <Link to="/interviews" className="hover:text-primary">
+                  Interviews
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
