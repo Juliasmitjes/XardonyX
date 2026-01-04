@@ -10,7 +10,7 @@ const Contact = () => {
               Bookings & collabs
             </p>
             <h1 className="mt-4 font-display text-4xl tracking-[0.2em]">
-              Contact us
+              Contact
             </h1>
           </div>
           <Link
