@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import heroBg from "../../public/heroBg.png";
 import optie2 from "../../public/optie2.png";
+import singles from "../../public/takeMyWings.png"
 import voorbeeldArtiest from "../../public/voorbeeldArtiest.png";
 
 const featuredLinks = [
@@ -15,7 +16,7 @@ const featuredLinks = [
     id: "02",
     title: "Singles",
     href: "/singles",
-    image: heroBg,
+    image: singles,
     imageClassName: "object-[center_25%]",
   },
   {
