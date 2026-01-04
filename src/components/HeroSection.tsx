@@ -20,8 +20,8 @@ const featuredLinks = [
   },
   {
     id: "03",
-    title: "Albums",
-    href: "/albums",
+    title: "Contact",
+    href: "/contact",
     image: heroBg,
     imageClassName: "object-[center_70%]",
   },
