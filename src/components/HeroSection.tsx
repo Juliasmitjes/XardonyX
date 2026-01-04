@@ -87,11 +87,11 @@ export default function HeroSection() {
 
           <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.4em] text-primary/70">
+              <p className="text-xs uppercase tracking-[0.4em] text-foreground/70">
                 Artist profile
               </p>
-              <h4 className="font-display text-3xl tracking-[0.15em] text-foreground">
-                Xardonyx
+              <h4 className="font-display text-3xl tracking-[0.15em] text-primary/70">
+                XARDONYX
               </h4>
               <p className="text-sm leading-relaxed text-foreground/70">
                 A cinematic techno project shaped by ritual, light, and long-form

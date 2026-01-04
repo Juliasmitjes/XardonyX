@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import heroBg from "../../public/heroBg.png";
 
-const Interviews = () => {
+const Video = () => {
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
       <div className="container mx-auto px-6 py-24">
@@ -85,4 +85,4 @@ const Interviews = () => {
   );
 };
 
-export default Interviews;
+export default Video;

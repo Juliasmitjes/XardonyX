@@ -4,10 +4,9 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Video", href: "/video" },
   { label: "Singles", href: "/singles" },
-  { label: "Interviews", href: "/interviews" },
-  { label: "Albums", href: "/albums" },
-  { label: "Contact & Details", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -40,7 +39,7 @@ const Navbar = () => {
           </Link>
 
           <button
-            className="text-foreground p-2"
+            className="text-foreground p-2 cursor-pointer hover:text-primary"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -56,7 +55,7 @@ const Navbar = () => {
         }`}
       >
         <button
-          className="absolute top-8 left-1/2 -translate-x-1/2 text-foreground p-2"
+          className="absolute top-8 left-1/2 -translate-x-1/2 text-foreground p-2 cursor-pointer hover:text-primary"
           onClick={() => setIsOpen(false)}
           aria-label="Close menu"
         >
