@@ -78,7 +78,7 @@ const Contact = () => {
                       <option value="+49">+49 DE</option>
                       <option value="+44">+44 UK</option>
                     </select>
-                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2" />
                   </div>
                   <input
                     type="tel"
