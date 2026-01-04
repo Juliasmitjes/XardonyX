@@ -104,19 +104,19 @@ export default function HeroSection() {
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Origin
                 </p>
-                <p className="mt-2 text-foreground">Amsterdam</p>
+                <p className="mt-2 text-foreground">Utrecht</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Genre
                 </p>
-                <p className="mt-2 text-foreground">Techno / Ritual</p>
+                <p className="mt-2 text-foreground">Pop / Rock</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Active
                 </p>
-                <p className="mt-2 text-foreground">2019 - Now</p>
+                <p className="mt-2 text-foreground">xxx - Now</p>
               </div>
             </div>
 
