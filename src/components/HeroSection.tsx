@@ -67,7 +67,7 @@ export default function HeroSection() {
                   {item.id}
                 </span>
                 <span className="mt-2 h-px w-12 bg-foreground/70" />
-                <h3 className="mt-4 font-display text-3xl tracking-wide text-foreground">
+                <h3 className="mt-4 font-display text-3xl tracking-wide text-foreground transition-colors duration-300 group-hover:text-[#4DFFBE]">
                   {item.title}
                 </h3>
               </div>
