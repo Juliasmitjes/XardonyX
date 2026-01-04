@@ -13,7 +13,7 @@ const Contact = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Bookings & collabs
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.2em]">
+            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-primary">
               Contact
             </h1>
           </div>
@@ -34,13 +34,15 @@ const Contact = () => {
               you.
             </p>
             <div className="grid gap-4 text-sm text-foreground/70 sm:grid-cols-2">
-              <div className="rounded-2xl border border-foreground/10 bg-white/5 p-4">
+              <div className="rounded-2xl border border-primary/20 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Email
                 </p>
-                <p className="mt-2 text-foreground">hello@xardonyx.com</p>
+                <p className="mt-2 text-foreground hover:text-primary">
+                  hello@xardonyx.com
+                </p>
               </div>
-              <div className="rounded-2xl border border-foreground/10 bg-white/5 p-4">
+              <div className="rounded-2xl border border-primary/20 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Location
                 </p>
@@ -49,7 +51,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="rounded-3xl border border-foreground/10 bg-white/5 p-8 backdrop-blur-sm">
+          <form className="rounded-3xl border border-primary/20 bg-white/5 p-8 backdrop-blur-sm">
             <div className="space-y-6">
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Email <span className="text-primary">*</span>
@@ -57,13 +59,13 @@ const Contact = () => {
                   type="email"
                   required
                   placeholder="you@example.com"
-                  className="mt-3 w-full rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="mt-3 w-full rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </label>
 
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Phone
-                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground">
+                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
                   <div className="relative">
                     <select
                       value={countryCode}
@@ -76,7 +78,7 @@ const Contact = () => {
                       <option value="+49">+49 DE</option>
                       <option value="+44">+44 UK</option>
                     </select>
-                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/70" />
+                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
                   </div>
                   <input
                     type="tel"
@@ -91,13 +93,13 @@ const Contact = () => {
                 <textarea
                   rows={5}
                   placeholder="Tell us about the project..."
-                  className="mt-3 w-full resize-none rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="mt-3 w-full resize-none rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </label>
 
               <button
                 type="submit"
-                className="mt-2 w-full rounded-2xl border border-foreground/20 bg-foreground/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary/60 hover:text-primary"
+                className="mt-2 w-full rounded-2xl border border-primary/40 bg-primary/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary hover:text-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.25)]"
               >
                 Submit
               </button>

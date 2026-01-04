@@ -73,7 +73,7 @@ const Navbar = () => {
                 className={`font-display text-2xl tracking-wider transition-colors ${
                   label === "Home"
                     ? "text-primary"
-                    : "text-foreground/70 hover:text-foreground"
+                    : "text-foreground/70 hover:text-primary"
                 }`}
               >
                 {label}

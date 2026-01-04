@@ -102,7 +102,7 @@ const Singles = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Archive
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.2em]">
+            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-primary">
               Singles
             </h1>
           </div>
@@ -110,21 +110,21 @@ const Singles = () => {
             to="/"
             className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/70 hover:text-primary"
           >
-            <span className="h-px w-10 bg-foreground/40" />
+            <span className="h-px w-10 bg-primary/60" />
             Back to home
           </Link>
         </div>
 
-        <section className="mt-12 rounded-3xl border border-foreground/10 bg-white/5 p-6 backdrop-blur-sm md:p-10">
+        <section className="mt-12 rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm md:p-10">
           <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-foreground/15 bg-foreground/5">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-primary/20 bg-foreground/5">
               <img
                 src={optie2}
                 alt="Album cover"
                 className="h-full w-full object-cover grayscale"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
-              <div className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.3em] text-foreground/70">
+              <div className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.3em] text-primary/80">
                 Demo album
               </div>
             </div>
@@ -132,21 +132,21 @@ const Singles = () => {
             <div className="space-y-8">
               <div className="flex flex-wrap items-start justify-between gap-6">
                 <div className="space-y-3">
-                  <p className="text-sm uppercase tracking-[0.35em] text-foreground/60">
+                  <p className="text-sm uppercase tracking-[0.35em] text-primary/70">
                     Artist
                   </p>
                   <h2 className="font-display text-3xl tracking-[0.15em] text-foreground">
                     Track 1
                   </h2>
-                  <p className="text-sm uppercase tracking-[0.3em] text-foreground/60">
+                  <p className="text-sm uppercase tracking-[0.3em] text-primary/70">
                     Album 1
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <button className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/20 text-foreground/70 transition hover:border-primary/60 hover:text-primary">
+                  <button className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 text-foreground/70 transition hover:border-primary hover:text-primary">
                     <Share2 className="h-5 w-5" />
                   </button>
-                  <button className="rounded-xl border border-foreground/20 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/70 transition hover:border-primary/60 hover:text-primary">
+                  <button className="rounded-xl border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/70 transition hover:border-primary hover:text-primary">
                     Album €9.99
                   </button>
                 </div>
@@ -157,7 +157,7 @@ const Singles = () => {
                   type="button"
                   onClick={() => setIsPlaying((prev) => !prev)}
                   aria-pressed={isPlaying}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-foreground/30 text-foreground transition hover:border-primary/60 hover:text-primary"
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-primary/40 text-foreground transition hover:border-primary hover:text-primary"
                 >
                   {isPlaying ? (
                     <Pause className="h-8 w-8" />
@@ -205,7 +205,7 @@ const Singles = () => {
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="flex h-24 w-12 items-center justify-center rounded-xl border border-foreground/15 bg-foreground/5">
+                    <div className="flex h-24 w-12 items-center justify-center rounded-xl border border-primary/20 bg-foreground/5">
                       <div
                         role="presentation"
                         onClick={handleVolumeChange}
@@ -243,13 +243,13 @@ const Singles = () => {
         </section>
 
         <section className="mt-12">
-          <div className="divide-y divide-foreground/15 border-t border-foreground/15">
+          <div className="divide-y divide-foreground/15 border-t border-primary/30">
             {tracks.map((track) => (
               <div
                 key={track.id}
-                className="grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80"
+                className="grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition hover:bg-primary/5"
               >
-                <span className="font-mono text-foreground/60">
+                <span className="font-mono text-primary/70">
                   {track.id}
                 </span>
                 <span className="font-display text-lg tracking-wide text-foreground">

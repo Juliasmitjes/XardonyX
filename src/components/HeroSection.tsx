@@ -63,11 +63,11 @@ export default function HeroSection() {
               />
               <div className="absolute inset-0 bg-black/35" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <span className="text-xs uppercase tracking-[0.4em] text-foreground/70">
+                <span className="text-xs uppercase tracking-[0.4em] text-primary/80">
                   {item.id}
                 </span>
-                <span className="mt-2 h-px w-12 bg-foreground/70" />
-                <h3 className="mt-4 font-display text-3xl tracking-wide text-foreground transition-colors duration-300 group-hover:text-[#4DFFBE]">
+                <span className="mt-2 h-px w-12 bg-primary/70" />
+                <h3 className="mt-4 font-display text-3xl tracking-wide text-foreground transition-colors duration-300 group-hover:text-primary">
                   {item.title}
                 </h3>
               </div>
@@ -86,7 +86,7 @@ export default function HeroSection() {
 
           <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
+              <p className="text-xs uppercase tracking-[0.4em] text-primary/70">
                 Artist profile
               </p>
               <h4 className="font-display text-3xl tracking-[0.15em] text-foreground">
