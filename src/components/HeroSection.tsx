@@ -6,15 +6,15 @@ import voorbeeldArtiest from "../../public/voorbeeldArtiest.png";
 const featuredLinks = [
   {
     id: "01",
-    title: "Singles",
-    href: "/singles",
+    title: "Video",
+    href: "/interviews",
     image: optie2,
     imageClassName: "object-[center_35%]",
   },
   {
     id: "02",
-    title: "Interviews",
-    href: "/interviews",
+    title: "Singles",
+    href: "/singles",
     image: heroBg,
     imageClassName: "object-[center_25%]",
   },
