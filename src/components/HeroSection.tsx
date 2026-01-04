@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import heroBg from "../../public/heroBg.png";
-import optie2 from "../../public/optie2.png";
+import vlinder from "../../public/vlinderZoom.png";
+import licht from "../../public/licht.png";
 import singles from "../../public/takeMyWings.png"
 import voorbeeldArtiest from "../../public/voorbeeldArtiest.png";
 
@@ -9,7 +9,7 @@ const featuredLinks = [
     id: "01",
     title: "Video",
     href: "/interviews",
-    image: optie2,
+    image: licht,
     imageClassName: "object-[center_35%]",
   },
   {
@@ -23,7 +23,7 @@ const featuredLinks = [
     id: "03",
     title: "Contact",
     href: "/contact",
-    image: heroBg,
+    image: vlinder,
     imageClassName: "object-[center_70%]",
   },
 ];

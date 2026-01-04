@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex h-20 items-center justify-between">
           <Link
             to="/"
-            className="font-display text-xl tracking-[0.3em] text-foreground transition-colors hover:text-primary"
+            className="font-display text-4xl tracking-[0.3em] text-foreground transition-colors hover:text-primary"
           >
             XARDONYX
           </Link>
