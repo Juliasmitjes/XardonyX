@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 const Contact = () => {
   const [countryCode, setCountryCode] = useState("+31");
@@ -63,17 +64,20 @@ const Contact = () => {
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Phone
                 <div className="mt-3 flex items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground">
-                  <select
-                    value={countryCode}
-                    onChange={(event) => setCountryCode(event.target.value)}
-                    className="rounded-full bg-[#050505] px-2 py-1 text-foreground focus:outline-none"
-                    aria-label="Country code"
-                  >
-                    <option value="+31">+31 NL</option>
-                    <option value="+32">+32 BE</option>
-                    <option value="+49">+49 DE</option>
-                    <option value="+44">+44 UK</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      value={countryCode}
+                      onChange={(event) => setCountryCode(event.target.value)}
+                      className="appearance-none rounded-lg bg-[#050505] px-2 py-1 pr-8 text-foreground focus:outline-none"
+                      aria-label="Country code"
+                    >
+                      <option value="+31">+31 NL</option>
+                      <option value="+32">+32 BE</option>
+                      <option value="+49">+49 DE</option>
+                      <option value="+44">+44 UK</option>
+                    </select>
+                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/70" />
+                  </div>
                   <input
                     type="tel"
                     placeholder="6 1234 5678"
