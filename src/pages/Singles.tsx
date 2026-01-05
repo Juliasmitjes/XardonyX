@@ -1,15 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  ListMusic,
-  Pause,
-  Play,
-  Share2,
-  SkipBack,
-  SkipForward,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
 import wings from "../../public/takeMyWings.png";
 
 const tracks = [
@@ -19,80 +9,10 @@ const tracks = [
   { id: 4, title: "Returning Home", duration: "03:26", embedUrl: "https://open.spotify.com/embed/track/5JvLnbItLT0yX0cfeaWrxM?utm_source=generator&theme=0" },
 ];
 
-const totalSeconds = 171;
-
-const formatTime = (value: number) => {
-  const minutes = Math.floor(value / 60);
-  const seconds = Math.floor(value % 60);
-  return `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
-};
-
 const Singles = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [volume, setVolume] = useState(0.7);
-  const [isMuted, setIsMuted] = useState(false);
-  const timerRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (!isPlaying) {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      return;
-    }
-
-    timerRef.current = window.setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + 1 / totalSeconds;
-        if (next >= 1) {
-          setIsPlaying(false);
-          return 1;
-        }
-        return next;
-      });
-    }, 1000);
-
-    return () => {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, [isPlaying]);
-
-  const currentSeconds = Math.round(progress * totalSeconds);
-  const displaySeconds = Math.min(currentSeconds, totalSeconds);
-  const progressPercent = Math.min(progress * 100, 100);
-  const effectiveVolume = isMuted ? 0 : volume;
-  const volumePercent = Math.min(Math.max(effectiveVolume * 100, 0), 100);
-
-  const handleSeek = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const percent = (event.clientX - rect.left) / rect.width;
-    setProgress(Math.min(Math.max(percent, 0), 1));
-  };
-
-  const handleVolumeChange = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const percent = (rect.bottom - event.clientY) / rect.height;
-    const nextVolume = Math.min(Math.max(percent, 0), 1);
-    setVolume(nextVolume);
-    setIsMuted(nextVolume === 0);
-  };
-
-  const nudgeProgress = (deltaSeconds: number) => {
-    setProgress((prev) => {
-      const nextSeconds = Math.min(
-        Math.max(prev * totalSeconds + deltaSeconds, 0),
-        totalSeconds
-      );
-      return nextSeconds / totalSeconds;
-    });
-  };
+  const [selectedTrackId, setSelectedTrackId] = useState(tracks[0]?.id ?? 0);
+  const activeTrack =
+    tracks.find((track) => track.id === selectedTrackId) ?? tracks[0];
 
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
@@ -125,7 +45,7 @@ const Singles = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
               <div className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.3em] text-primary/80">
-                Demo album
+                Featured single
               </div>
             </div>
 
@@ -136,108 +56,26 @@ const Singles = () => {
                     XARDONYX
                   </p>
                   <h2 className="font-display text-3xl tracking-[0.15em] text-foreground">
-                    Take my Wings
+                    {activeTrack?.title ?? "Singles"}
                   </h2>
                   <p className="text-sm uppercase tracking-[0.3em] text-primary/70">
-                    Album 1
+                    Single
                   </p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <button className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 text-foreground/70 transition hover:border-primary hover:text-primary">
-                    <Share2 className="h-5 w-5" />
-                  </button>
-                  <button className="rounded-xl border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/70 transition hover:border-primary hover:text-primary">
-                    Album €9.99
-                  </button>
-                </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6">
-                <button
-                  type="button"
-                  onClick={() => setIsPlaying((prev) => !prev)}
-                  aria-pressed={isPlaying}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-primary/40 text-foreground transition hover:border-primary hover:text-primary"
-                >
-                  {isPlaying ? (
-                    <Pause className="h-8 w-8" />
-                  ) : (
-                    <Play className="h-8 w-8 translate-x-[2px]" />
-                  )}
-                </button>
-
-                <div className="flex flex-1 flex-wrap items-center gap-6">
-                  <div className="flex items-center gap-4">
-                    <button
-                      type="button"
-                      onClick={() => nudgeProgress(-10)}
-                      className="text-foreground/70 transition hover:text-primary"
-                    >
-                      <SkipBack className="h-6 w-6" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => nudgeProgress(10)}
-                      className="text-foreground/70 transition hover:text-primary"
-                    >
-                      <SkipForward className="h-6 w-6" />
-                    </button>
-                  </div>
-
-                  <div className="flex min-w-[220px] flex-1 items-center gap-4">
-                    <div
-                      role="presentation"
-                      onClick={handleSeek}
-                      className="relative h-1 w-full cursor-pointer rounded-full bg-foreground/15"
-                    >
-                      <span
-                        className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-primary to-primary/40"
-                        style={{ width: `${progressPercent}%` }}
-                      />
-                      <span
-                        className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_18px_hsl(var(--primary)/0.6)]"
-                        style={{ left: `${progressPercent}%` }}
-                      />
-                    </div>
-                    <span className="font-mono text-xs text-foreground/60">
-                      {formatTime(displaySeconds)} / {formatTime(totalSeconds)}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-24 w-12 items-center justify-center rounded-xl border border-primary/20 bg-foreground/5">
-                      <div
-                        role="presentation"
-                        onClick={handleVolumeChange}
-                        className="relative h-16 w-1 cursor-pointer rounded-full bg-foreground/15"
-                      >
-                        <span
-                          className="absolute bottom-0 left-0 w-full rounded-full bg-primary/50"
-                          style={{ height: `${volumePercent}%` }}
-                        />
-                        <span
-                          className="absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
-                          style={{ bottom: `${volumePercent}%` }}
-                        />
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setIsMuted((prev) => !prev)}
-                      className="text-foreground/70 transition hover:text-primary"
-                    >
-                      {isMuted || effectiveVolume === 0 ? (
-                        <VolumeX className="h-6 w-6" />
-                      ) : (
-                        <Volume2 className="h-6 w-6" />
-                      )}
-                    </button>
-                    <button className="text-foreground/70 transition hover:text-primary">
-                      <ListMusic className="h-6 w-6" />
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {activeTrack?.embedUrl ? (
+                <iframe
+                  title={`${activeTrack.title} Spotify player`}
+                  src={activeTrack.embedUrl}
+                  width="100%"
+                  height="352"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  style={{ borderRadius: 12 }}
+                />
+              ) : null}
             </div>
           </div>
         </section>
@@ -247,28 +85,26 @@ const Singles = () => {
             {tracks.map((track) => (
               <div
                 key={track.id}
-                className="grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition hover:bg-primary/5"
+                className={`grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition ${
+                  track.id === activeTrack?.id
+                    ? "bg-primary/10"
+                    : "hover:bg-primary/5"
+                }`}
               >
                 <span className="font-mono text-primary/70">
                   {track.id}
                 </span>
-                <div className="space-y-3">
-                  <span className="font-display text-lg tracking-wide text-foreground">
-                    {track.title}
-                  </span>
-                  {track.embedUrl ? (
-                    <iframe
-                      title={`${track.title} Spotify player`}
-                      src={track.embedUrl}
-                      width="100%"
-                      height="152"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      style={{ borderRadius: 12 }}
-                    />
-                  ) : null}
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedTrackId(track.id)}
+                  className={`text-left font-display text-lg tracking-wide transition ${
+                    track.id === activeTrack?.id
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {track.title}
+                </button>
                 <span className="font-mono text-foreground/60">
                   {track.duration}
                 </span>
