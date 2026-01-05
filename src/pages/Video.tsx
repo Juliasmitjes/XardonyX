@@ -4,8 +4,15 @@ const Video = () => {
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
       <div className="container mx-auto px-6 py-24">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Link
+            to="/"
+            className="order-first -mt-14 inline-flex w-full items-center justify-center gap-3 rounded-full border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/80 transition hover:border-primary hover:text-primary sm:order-2 sm:mt-0 sm:w-auto sm:border-0 sm:px-0 sm:py-0"
+          >
+            <span className="hidden h-px w-10 bg-primary/60 sm:block" />
+            Back to home
+          </Link>
+          <div className="order-2 mt-10 sm:order-1 sm:mt-0">
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Live performance
             </p>
@@ -13,18 +20,11 @@ const Video = () => {
               VIDEO
             </h1>
           </div>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/70 hover:text-primary"
-          >
-            <span className="h-px w-10 bg-primary/60" />
-            Back to home
-          </Link>
         </div>
 
-        <section className="mt-12 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+        <section className="mt-8 grid gap-10 lg:mt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div className="space-y-6">
-            <div className="overflow-hidden rounded-3xl border border-primary/20 bg-black/40">
+            <div className="-mx-6 overflow-hidden bg-black/40 sm:mx-0 sm:rounded-3xl sm:border sm:border-primary/20">
               <div className="relative aspect-video">
                 <video
                   controls
@@ -53,7 +53,7 @@ const Video = () => {
             </p>
           </div>
 
-          <aside className="space-y-6 rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm">
+          <aside className="space-y-6 rounded-3xl border border-primary/20 bg-white/5 p-4 backdrop-blur-sm sm:p-6">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                 Release
