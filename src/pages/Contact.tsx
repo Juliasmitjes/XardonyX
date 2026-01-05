@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 const Contact = () => {
   const [countryCode, setCountryCode] = useState("+31");
 
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
+      <Navbar />
       <div className="container mx-auto px-4 py-24 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             to="/"
-            className="order-first -mt-14 inline-flex w-full items-center justify-center gap-3 rounded-full border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/80 transition hover:border-primary hover:text-primary sm:order-2 sm:mt-0 sm:w-auto sm:border-0 sm:px-0 sm:py-0"
+            className="order-first hidden w-full items-center justify-center gap-3 rounded-full border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/80 transition hover:border-primary hover:text-primary sm:order-2 sm:mt-0 sm:inline-flex sm:w-auto sm:border-0 sm:px-0 sm:py-0"
           >
             <span className="hidden h-px w-10 bg-foreground/40 sm:block" />
             Back to home
