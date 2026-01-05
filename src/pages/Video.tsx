@@ -64,17 +64,17 @@ const Video = () => {
               <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                 Duration
               </p>
-              <p className="mt-2 text-lg text-foreground">14:32</p>
+              <p className="mt-2 text-lg text-foreground">09:56</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                 Location
               </p>
-              <p className="mt-2 text-lg text-foreground">Amsterdam</p>
+              <p className="mt-2 text-lg text-foreground">Utrecht</p>
             </div>
             <button
               type="button"
-              className="w-full rounded-2xl border border-primary/40 bg-primary/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary hover:text-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.25)]"
+              className="w-full rounded-2xl border border-primary/40 bg-primary/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary hover:text-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.25)] cursor-pointer"
             >
               Watch full set
             </button>
