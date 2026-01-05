@@ -5,21 +5,21 @@ const featuredLinks = [
     id: "01",
     title: "Video",
     href: "/video",
-    image: "/licht.png",
+    image: `${import.meta.env.BASE_URL}licht.png`,
     imageClassName: "object-[center_35%]",
   },
   {
     id: "02",
     title: "Singles",
     href: "/singles",
-    image: "/takeMyWings.png",
+    image: `${import.meta.env.BASE_URL}takeMyWings.png`,
     imageClassName: "object-[center_25%]",
   },
   {
     id: "03",
     title: "Contact",
     href: "/contact",
-    image: "/vlinderZoom.png",
+    image: `${import.meta.env.BASE_URL}vlinderZoom.png`,
     imageClassName: "object-[center_70%]",
   },
 ];
@@ -75,7 +75,7 @@ export default function HeroSection() {
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div className="relative overflow-hidden border border-foreground/15">
             <img
-              src="/voorbeeldArtiest.png"
+              src={`${import.meta.env.BASE_URL}voorbeeldArtiest.png`}
               alt="Artist portrait"
               className="h-full w-full object-cover"
             />

@@ -28,7 +28,7 @@ const Video = () => {
               <div className="relative aspect-video">
                 <video
                   controls
-                  poster="/licht.png"
+                  poster={`${import.meta.env.BASE_URL}licht.png`}
                   className="h-full w-full object-cover"
                 >
                   <source
