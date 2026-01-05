@@ -8,7 +8,7 @@ const Video = () => {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
-              Archive
+              Live performance
             </p>
             <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-third">
               VIDEO
@@ -44,12 +44,13 @@ const Video = () => {
               Featured set
             </p>
             <h2 className="font-display text-3xl tracking-[0.15em] text-foreground">
-              Cathedral Session
+              Live Television Session
             </h2>
             <p className="max-w-2xl text-sm leading-relaxed text-foreground/70">
               A live performance captured in a single take, built on long
-              tension arcs and luminous breaks. Replace this video with your
-              own live cut when ready.
+              tension arcs and luminous breaks. The set showcases a blend of
+              atmospheric melodies and driving rhythms, creating an immersive
+              experience that captivates the audience from start to finish.
             </p>
           </div>
 
