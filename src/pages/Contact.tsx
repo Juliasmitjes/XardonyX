@@ -8,8 +8,15 @@ const Contact = () => {
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
       <div className="container mx-auto px-6 py-24">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Link
+            to="/"
+            className="order-first -mt-14 inline-flex w-full items-center justify-center gap-3 rounded-full border border-primary/30 px-5 py-3 text-xs uppercase tracking-[0.3em] text-foreground/80 transition hover:border-primary hover:text-primary sm:order-2 sm:mt-0 sm:w-auto sm:border-0 sm:px-0 sm:py-0"
+          >
+            <span className="hidden h-px w-10 bg-foreground/40 sm:block" />
+            Back to home
+          </Link>
+          <div className="order-2 mt-10 sm:order-1 sm:mt-0">
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Bookings & collabs
             </p>
@@ -17,13 +24,6 @@ const Contact = () => {
               CONTACT
             </h1>
           </div>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/70 hover:text-primary"
-          >
-            <span className="h-px w-10 bg-foreground/40" />
-            Back to home
-          </Link>
         </div>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
