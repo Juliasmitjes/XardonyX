@@ -30,19 +30,19 @@ const featuredLinks = [
 
 const artistHighlights = [
   {
-    title: "Midnight Ceremony",
+    title: "Take my wings",
     type: "Single",
-    year: "2024",
+    year: "2025",
   },
   {
-    title: "Ashes in Orbit",
-    type: "EP",
-    year: "2023",
+    title: "She lives in you",
+    type: "Single",
+    year: "2020",
   },
   {
-    title: "Glass Cathedral",
-    type: "Album",
-    year: "2022",
+    title: "Returning home",
+    type: "Single",
+    year: "2019",
   },
 ];
 
@@ -144,14 +144,14 @@ export default function HeroSection() {
                 ))}
               </div>
               <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-foreground/60">
-                <Link to="/albums" className="hover:text-primary">
-                  View albums
+                <Link to="/video" className="hover:text-primary">
+                  View live
                 </Link>
                 <Link to="/singles" className="hover:text-primary">
-                  View singles
+                  Listen
                 </Link>
-                <Link to="/interviews" className="hover:text-primary">
-                  Interviews
+                <Link to="/contact" className="hover:text-primary">
+                  Contact
                 </Link>
               </div>
             </div>
