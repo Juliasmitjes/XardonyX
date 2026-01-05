@@ -7,7 +7,7 @@ const Contact = () => {
 
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
-      <div className="container mx-auto px-6 py-24">
+      <div className="container mx-auto px-4 py-24 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             to="/"
@@ -26,7 +26,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div className="mt-8 grid gap-12 lg:mt-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="space-y-6">
             <p className="max-w-xl text-base leading-relaxed text-foreground/70">
               For inquiries, bookings, or collaborations, feel free to reach out
@@ -34,15 +34,15 @@ const Contact = () => {
               you.
             </p>
             <div className="grid gap-4 text-sm text-foreground/70 sm:grid-cols-2">
-              <div className="rounded-2xl border border-primary/20 bg-white/5 p-4">
+              <div className="min-w-0 rounded-2xl border border-primary/20 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Email
                 </p>
-                <p className="mt-2 text-foreground hover:text-primary cursor-pointer">
+                <p className="mt-2 break-words text-foreground hover:text-primary cursor-pointer">
                   hello@xardonyx.com
                 </p>
               </div>
-              <div className="rounded-2xl border border-primary/20 bg-white/5 p-4">
+              <div className="min-w-0 rounded-2xl border border-primary/20 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Location
                 </p>
@@ -51,7 +51,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="rounded-3xl border border-primary/20 bg-white/5 p-8 backdrop-blur-sm">
+          <form className="w-full max-w-full rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
             <div className="space-y-6">
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Email <span className="text-primary">*</span>
@@ -65,8 +65,8 @@ const Contact = () => {
 
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Phone
-                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
-                  <div className="relative">
+                <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 sm:flex-nowrap">
+                  <div className="relative shrink-0">
                     <select
                       value={countryCode}
                       onChange={(event) => setCountryCode(event.target.value)}
@@ -83,7 +83,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     placeholder="6 1234 5678"
-                    className="flex-1 bg-transparent text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
+                    className="min-w-[160px] flex-1 bg-transparent text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
                   />
                 </div>
               </label>
