@@ -83,32 +83,32 @@ const Singles = () => {
         <section className="mt-12">
           <div className="divide-y divide-foreground/15 border-t border-primary/30">
             {tracks.map((track) => (
-              <div
+              <button
+                type="button"
                 key={track.id}
-                className={`grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition pl-4 ${
+                onClick={() => setSelectedTrackId(track.id)}
+                className={`grid w-full grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-left text-sm text-foreground/80 transition pl-4 cursor-pointer ${
                   track.id === activeTrack?.id
                     ? "bg-primary/10"
                     : "hover:bg-primary/5"
                 }`}
               >
-                <span className="font-mono text-primary/70 ">
+                <span className="font-mono text-primary/70">
                   {track.id}
                 </span>
-                <button
-                  type="button"
-                  onClick={() => setSelectedTrackId(track.id)}
-                  className={`text-left font-display text-lg tracking-wide transition cursor-pointer ${
+                <span
+                  className={`font-display text-lg tracking-wide transition ${
                     track.id === activeTrack?.id
                       ? "text-primary"
-                      : "text-foreground hover:text-primary"
+                      : "text-foreground"
                   }`}
                 >
                   {track.title}
-                </button>
-                <span className="font-mono text-foreground/60 pr-4 ">
+                </span>
+                <span className="font-mono text-foreground/60 pr-4">
                   {track.duration}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         </section>
