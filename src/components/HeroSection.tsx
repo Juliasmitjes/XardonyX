@@ -46,17 +46,17 @@ export default function HeroSection() {
   return (
     <section className="bg-[#050505] text-foreground">
       <div className="container mx-auto px-6 pt-28 pb-16">
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr_1fr]">
+        <div className="flex gap-4 overflow-x-auto pb-2 -mx-6 px-6 lg:mx-0 lg:grid lg:gap-6 lg:px-0 lg:grid-cols-[1fr_1.2fr_1fr]">
           {featuredLinks.map((item) => (
             <Link
               key={item.id}
               to={item.href}
-              className="group relative overflow-hidden"
+              className="group relative w-[78vw] max-w-[340px] shrink-0 snap-start overflow-hidden lg:w-auto"
             >
               <img
                 src={item.image}
                 alt={`${item.title} cover`}
-                className={`h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[360px] lg:h-[420px] ${item.imageClassName}`}
+                className={`h-[220px] w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-[280px] md:h-[360px] lg:h-[420px] ${item.imageClassName}`}
               />
               <div className="absolute inset-0 bg-black/35" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
