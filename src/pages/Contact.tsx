@@ -8,8 +8,8 @@ const Contact = () => {
 
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
-      <Navbar />
-      <div className="container mx-auto px-4 py-24 sm:px-6">
+      <Navbar hideOnDesktop />
+      <div className="container mx-auto px-4 pt-10 pb-24 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             to="/"

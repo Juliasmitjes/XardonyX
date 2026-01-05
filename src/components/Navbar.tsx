@@ -9,7 +9,11 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const Navbar = () => {
+type NavbarProps = {
+  hideOnDesktop?: boolean;
+};
+
+const Navbar = ({ hideOnDesktop = false }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -24,6 +28,8 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        hideOnDesktop ? "sm:hidden" : ""
+      } ${
         isScrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border/30"
           : "bg-transparent"
