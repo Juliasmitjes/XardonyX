@@ -10,7 +10,7 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import optie2 from "../../public/optie2.png";
+import licht from "../../public/licht.png";
 
 const tracks = [
   { id: 1, title: "Track 1 / Artist", duration: "02:51" },
@@ -119,7 +119,7 @@ const Singles = () => {
           <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-primary/20 bg-foreground/5">
               <img
-                src={optie2}
+                src={licht}
                 alt="Album cover"
                 className="h-full w-full object-cover grayscale"
               />

@@ -8,7 +8,7 @@ const featuredLinks = [
   {
     id: "01",
     title: "Video",
-    href: "/interviews",
+    href: "/video",
     image: licht,
     imageClassName: "object-[center_35%]",
   },
