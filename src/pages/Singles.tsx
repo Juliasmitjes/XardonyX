@@ -89,7 +89,7 @@ const Singles = () => {
                 className="mt-2 transition-opacity duration-200 sm:mt-2 sm:rounded-2xl sm:border sm:border-primary/20 sm:bg-foreground/5 sm:p-4"
                 style={{ opacity: isSwitching ? 0 : 1 }}
               >
-                <div className="-mx-8 rounded-3xl bg-black/40 px-4 pb-0 pt-4 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.9)] sm:mx-0 sm:rounded-2xl sm:bg-transparent sm:p-0 sm:shadow-none">
+                <div className="-mx-8 rounded-3xl bg-black/40 px-4 pb-0 pt-2 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.9)] sm:mx-0 sm:rounded-2xl sm:bg-transparent sm:p-0 sm:shadow-none">
                   <iframe
                     title={`${activeTrack.title} Spotify player`}
                     src={activeTrack.embedUrl}
@@ -98,7 +98,7 @@ const Singles = () => {
                     allowFullScreen
                     loading="lazy"
                     style={{ borderRadius: 18 }}
-                    className="h-[420px] w-full sm:h-[352px] sm:shadow-[0_0_20px_rgba(0,0,0,0.25)]"
+                    className="h-[400px] w-full sm:h-[352px] sm:shadow-[0_0_20px_rgba(0,0,0,0.25)]"
                   />
                 </div>
               </div>
