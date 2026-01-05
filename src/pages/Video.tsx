@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import wings from "../../public/takeMyWings.png";
+import licht from "../../public/licht.png";
 
 const Video = () => {
   return (
@@ -29,7 +29,7 @@ const Video = () => {
               <div className="relative aspect-video">
                 <video
                   controls
-                  poster={wings}
+                  poster={licht}
                   className="h-full w-full object-cover"
                 >
                   <source

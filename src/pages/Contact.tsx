@@ -38,7 +38,7 @@ const Contact = () => {
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Email
                 </p>
-                <p className="mt-2 text-foreground hover:text-primary">
+                <p className="mt-2 text-foreground hover:text-primary cursor-pointer">
                   hello@xardonyx.com
                 </p>
               </div>
@@ -46,7 +46,7 @@ const Contact = () => {
                 <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
                   Location
                 </p>
-                <p className="mt-2 text-foreground">Amsterdam, NL</p>
+                <p className="mt-2 text-foreground">Utrecht, NL</p>
               </div>
             </div>
           </div>
@@ -92,14 +92,14 @@ const Contact = () => {
                 Message
                 <textarea
                   rows={5}
-                  placeholder="Tell us about the project..."
+                  placeholder="Tell us about your project..."
                   className="mt-3 w-full resize-none rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </label>
 
               <button
                 type="submit"
-                className="mt-2 w-full rounded-2xl border border-primary/40 bg-primary/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary hover:text-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.25)]"
+                className="mt-2 w-full rounded-2xl border border-primary/40 bg-primary/10 py-3 text-xs uppercase tracking-[0.4em] text-foreground transition hover:border-primary hover:text-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.25)] cursor-pointer"
               >
                 Submit
               </button>

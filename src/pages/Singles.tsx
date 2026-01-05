@@ -10,13 +10,13 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import licht from "../../public/licht.png";
+import wings from "../../public/takeMyWings.png";
 
 const tracks = [
-  { id: 1, title: "Track 1 / Artist", duration: "02:51" },
-  { id: 2, title: "Track 2 / Artist", duration: "03:16" },
-  { id: 3, title: "Track 3 / Artist", duration: "03:19" },
-  { id: 4, title: "Track 4 / Artist", duration: "02:43" },
+  { id: 1, title: "Take my Wings", duration: "05:43" },
+  { id: 2, title: "She Lives in You", duration: "04:52" },
+  { id: 3, title: "Handle It - Vocal Edition", duration: "02:58" },
+  { id: 4, title: "Returning Home", duration: "03:26" },
 ];
 
 const totalSeconds = 171;
@@ -119,7 +119,7 @@ const Singles = () => {
           <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-primary/20 bg-foreground/5">
               <img
-                src={licht}
+                src={wings}
                 alt="Album cover"
                 className="h-full w-full object-cover grayscale"
               />
@@ -133,10 +133,10 @@ const Singles = () => {
               <div className="flex flex-wrap items-start justify-between gap-6">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-primary/70">
-                    Artist
+                    XARDONYX
                   </p>
                   <h2 className="font-display text-3xl tracking-[0.15em] text-foreground">
-                    Track 1
+                    Take my Wings
                   </h2>
                   <p className="text-sm uppercase tracking-[0.3em] text-primary/70">
                     Album 1
