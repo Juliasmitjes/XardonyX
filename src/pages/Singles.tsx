@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import wings from "../../public/takeMyWings.png";
 
 const tracks = [
   { id: 1, title: "Take my Wings", duration: "05:43", embedUrl: "https://open.spotify.com/embed/track/2NLefXn6aMTUHz4zETIg3I?utm_source=generator&theme=0" },
@@ -11,8 +10,18 @@ const tracks = [
 
 const Singles = () => {
   const [selectedTrackId, setSelectedTrackId] = useState(tracks[0]?.id ?? 0);
+  const [isSwitching, setIsSwitching] = useState(false);
   const activeTrack =
     tracks.find((track) => track.id === selectedTrackId) ?? tracks[0];
+
+  useEffect(() => {
+    setIsSwitching(true);
+    const timeoutId = window.setTimeout(() => {
+      setIsSwitching(false);
+    }, 180);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [activeTrack?.id]);
 
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
@@ -36,20 +45,7 @@ const Singles = () => {
         </div>
 
         <section className="mt-12 rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm md:p-10">
-          <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-primary/20 bg-foreground/5">
-              <img
-                src={wings}
-                alt="Album cover"
-                className="h-full w-full object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
-              <div className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.3em] text-primary/80">
-                Featured single
-              </div>
-            </div>
-
-            <div className="space-y-8">
+          <div className="space-y-8">
               <div className="flex flex-wrap items-start justify-between gap-6">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-primary/70">
@@ -64,7 +60,11 @@ const Singles = () => {
                 </div>
               </div>
 
-              {activeTrack?.embedUrl ? (
+            {activeTrack?.embedUrl ? (
+              <div
+                className="transition-opacity duration-200"
+                style={{ opacity: isSwitching ? 0 : 1 }}
+              >
                 <iframe
                   title={`${activeTrack.title} Spotify player`}
                   src={activeTrack.embedUrl}
@@ -75,8 +75,8 @@ const Singles = () => {
                   loading="lazy"
                   style={{ borderRadius: 12 }}
                 />
-              ) : null}
-            </div>
+              </div>
+            ) : null}
           </div>
         </section>
 
@@ -85,19 +85,19 @@ const Singles = () => {
             {tracks.map((track) => (
               <div
                 key={track.id}
-                className={`grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition ${
+                className={`grid grid-cols-[40px_1fr_auto] items-center gap-6 py-6 text-sm text-foreground/80 transition pl-4 ${
                   track.id === activeTrack?.id
                     ? "bg-primary/10"
                     : "hover:bg-primary/5"
                 }`}
               >
-                <span className="font-mono text-primary/70">
+                <span className="font-mono text-primary/70 ">
                   {track.id}
                 </span>
                 <button
                   type="button"
                   onClick={() => setSelectedTrackId(track.id)}
-                  className={`text-left font-display text-lg tracking-wide transition ${
+                  className={`text-left font-display text-lg tracking-wide transition cursor-pointer ${
                     track.id === activeTrack?.id
                       ? "text-primary"
                       : "text-foreground hover:text-primary"
@@ -105,7 +105,7 @@ const Singles = () => {
                 >
                   {track.title}
                 </button>
-                <span className="font-mono text-foreground/60">
+                <span className="font-mono text-foreground/60 pr-4 ">
                   {track.duration}
                 </span>
               </div>
