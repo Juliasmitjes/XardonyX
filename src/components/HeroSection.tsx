@@ -1,29 +1,25 @@
 import { Link } from "react-router-dom";
-import vlinder from "../../public/vlinderZoom.png";
-import licht from "../../public/licht.png";
-import singles from "../../public/takeMyWings.png"
-import voorbeeldArtiest from "../../public/voorbeeldArtiest.png";
 
 const featuredLinks = [
   {
     id: "01",
     title: "Video",
     href: "/video",
-    image: licht,
+    image: "/licht.png",
     imageClassName: "object-[center_35%]",
   },
   {
     id: "02",
     title: "Singles",
     href: "/singles",
-    image: singles,
+    image: "/takeMyWings.png",
     imageClassName: "object-[center_25%]",
   },
   {
     id: "03",
     title: "Contact",
     href: "/contact",
-    image: vlinder,
+    image: "/vlinderZoom.png",
     imageClassName: "object-[center_70%]",
   },
 ];
@@ -79,7 +75,7 @@ export default function HeroSection() {
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div className="relative overflow-hidden border border-foreground/15">
             <img
-              src={voorbeeldArtiest}
+              src="/voorbeeldArtiest.png"
               alt="Artist portrait"
               className="h-full w-full object-cover"
             />
