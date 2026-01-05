@@ -23,6 +23,7 @@ html{
     --secondary-foreground: 45 10% 90%;
 
     --third: 228 100% 97%;
+    --fourth: 266 100% 50%;
 
     --muted: 0 0% 12%;
     --muted-foreground: 45 5% 50%;
@@ -78,6 +79,7 @@ html{
     --color-primary-foreground: hsl(var(--primary-foreground));
     --color-secondary: hsl(var(--secondary));
     --color-third: hsl(var(--third));
+    --color-fourth: hsl(var(--fourth));
     --color-secondary-foreground: hsl(var(--secondary-foreground));
     --color-muted: hsl(var(--muted));
     --color-muted-foreground: hsl(var(--muted-foreground));
