@@ -51,7 +51,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="w-full max-w-full rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
+          <form className="w-full max-w-full overflow-hidden rounded-3xl border border-primary/20 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
             <div className="space-y-6">
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Email <span className="text-primary">*</span>
@@ -65,7 +65,7 @@ const Contact = () => {
 
               <label className="block text-sm uppercase tracking-[0.3em] text-foreground/60">
                 Phone
-                <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 sm:flex-nowrap">
+                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-foreground/20 bg-transparent px-4 py-3 text-sm text-foreground focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
                   <div className="relative shrink-0">
                     <select
                       value={countryCode}
@@ -83,7 +83,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     placeholder="6 1234 5678"
-                    className="min-w-[160px] flex-1 bg-transparent text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
+                    className="min-w-0 flex-1 bg-transparent text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
                   />
                 </div>
               </label>
