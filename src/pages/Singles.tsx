@@ -13,10 +13,10 @@ import {
 import wings from "../../public/takeMyWings.png";
 
 const tracks = [
-  { id: 1, title: "Take my Wings", duration: "05:43" },
-  { id: 2, title: "She Lives in You", duration: "04:52" },
-  { id: 3, title: "Handle It - Vocal Edition", duration: "02:58" },
-  { id: 4, title: "Returning Home", duration: "03:26" },
+  { id: 1, title: "Take my Wings", duration: "05:43", embedUrl: "https://open.spotify.com/embed/track/2NLefXn6aMTUHz4zETIg3I?utm_source=generator&theme=0" },
+  { id: 2, title: "She Lives in You", duration: "04:52", embedUrl: "https://open.spotify.com/embed/track/29JJlqRB4Wzg7wCijIGoCp?utm_source=generator&theme=0" },
+  { id: 3, title: "Handle It - Vocal Edition", duration: "02:58", embedUrl: "https://open.spotify.com/embed/track/19CYCKrvINuc7M5X0YCB7V?utm_source=generator&theme=0" },
+  { id: 4, title: "Returning Home", duration: "03:26", embedUrl: "https://open.spotify.com/embed/track/5JvLnbItLT0yX0cfeaWrxM?utm_source=generator&theme=0" },
 ];
 
 const totalSeconds = 171;
@@ -252,9 +252,23 @@ const Singles = () => {
                 <span className="font-mono text-primary/70">
                   {track.id}
                 </span>
-                <span className="font-display text-lg tracking-wide text-foreground">
-                  {track.title}
-                </span>
+                <div className="space-y-3">
+                  <span className="font-display text-lg tracking-wide text-foreground">
+                    {track.title}
+                  </span>
+                  {track.embedUrl ? (
+                    <iframe
+                      title={`${track.title} Spotify player`}
+                      src={track.embedUrl}
+                      width="100%"
+                      height="152"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      style={{ borderRadius: 12 }}
+                    />
+                  ) : null}
+                </div>
                 <span className="font-mono text-foreground/60">
                   {track.duration}
                 </span>
