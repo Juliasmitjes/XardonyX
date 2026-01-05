@@ -5,7 +5,7 @@ const Video = () => {
   return (
     <main className="min-h-screen bg-[#050505] text-foreground">
       <Navbar hideOnDesktop />
-      <div className="container mx-auto px-6 pt-10 pb-24">
+      <div className="container mx-auto px-6 md:pt-10 pt-20 pb-24">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             to="/"
