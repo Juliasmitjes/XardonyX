@@ -10,8 +10,8 @@ const Video = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Archive
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-primary">
-              Video
+            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-third">
+              VIDEO
             </h1>
           </div>
           <Link

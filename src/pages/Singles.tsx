@@ -102,8 +102,8 @@ const Singles = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Archive
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-primary">
-              Singles
+            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-third">
+              SINGLES 
             </h1>
           </div>
           <Link

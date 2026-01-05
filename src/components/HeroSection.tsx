@@ -90,7 +90,7 @@ export default function HeroSection() {
               <p className="text-xs uppercase tracking-[0.4em] text-foreground/70">
                 Artist profile
               </p>
-              <h4 className="font-display text-3xl tracking-[0.15em] text-primary/70">
+              <h4 className="font-display text-3xl tracking-[0.15em] text-third">
                 XARDONYX
               </h4>
               <p className="text-sm leading-relaxed text-foreground/70">

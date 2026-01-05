@@ -13,8 +13,8 @@ const Contact = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
               Bookings & collabs
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-primary">
-              Contact
+            <h1 className="mt-4 font-display text-4xl tracking-[0.2em] text-third">
+              CONTACT
             </h1>
           </div>
           <Link
